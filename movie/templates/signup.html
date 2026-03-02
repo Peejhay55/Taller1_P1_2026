@@ -1,0 +1,24 @@
+{% extends 'base.HTML' %}
+
+{% block content %}
+<div class="card p-4 mt-5">
+    {% if email %}
+        <div class="alert alert-success" role="alert">
+          Added {{ email }} to mailing list
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+    {% else %}
+        <h1>Join our Mailing list</h1>
+        <form action="">
+            <div class="mb-3">
+                <label for="email" class="form-label">
+                    Email address
+                </label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock content %}
+

@@ -1,0 +1,13 @@
+{% extends 'base.HTML' %}
+
+{% block content %}
+<div class="row">
+    <h1>Movies per genre</h1>
+    {% if graphic %}
+    <img src="data:image/png;base64,{{ graphic }}" alt="Movies per genre graph">
+    {% else %}
+    <p>No data available to display graph.</p>
+    {% endif %}
+</div>
+{% endblock content %}
+

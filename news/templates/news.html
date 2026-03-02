@@ -1,0 +1,34 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+{% extends 'base.HTML' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">News</h1>
+    {% for news in newss %}
+    <div class="card mb-3 mx-auto" style="max-width: 800px;">
+        <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center justify-content-center bg-light">
+                 {% if news.image %}
+                    <img src="{{ news.image.url }}" class="img-fluid rounded-start" alt="{{ news.headline }}">
+                {% else %}
+                    <img src="https://placehold.co/400x300?text=News" class="img-fluid rounded-start" alt="Placeholder">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ news.headline }}</h5>
+                    <p class="card-text">{{ news.body }}</p>
+                    <p class="card-text"><small class="text-body-secondary">{{ news.date }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
